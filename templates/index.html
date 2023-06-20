@@ -1,0 +1,429 @@
+<!--
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Responsive Search Bar</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* CSS code for the search bar, title, and full background picture */
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      background-image: url('https://www.codecademy.com/resources/blog/wp-content/uploads/2022/12/Real-World-Coding-Projects---thumb.png');
+      background-size: cover;
+      background-position: center;
+    }
+    
+    .container {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 20px; /* Add margin-bottom to create spacing between title and search bar */
+    }
+
+    .title {
+      font-size: 48px;
+      margin-bottom: 20px;
+      color: rgb(96, 4, 70);
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+      margin-top: 20px;
+      height: 70px;
+    }
+    .search-bar {
+      display: flex;
+      align-items: center;
+    }
+
+    .search-input {
+      width: 200px;
+    }
+    
+    @media (max-width: 576px) {
+      .search-input {
+        width: 100%;
+      }
+    }
+    @media (max-width: 576px) {
+      .footer {
+        font-size: 14px; /* Adjust font size for mobile view */
+    }
+}
+    .search-bar {
+      display: flex;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.8); /* Add a background color with transparency */
+      padding: 10px; /* Add padding to create space around the search bar */
+      z-index: 999;
+    }
+    
+    .search-input {
+      width: 200px;
+    }
+    .main-content {
+      margin-top: 120px; /* Add a margin top to create space below the fixed search bar */
+     }
+     /* CSS code for the footer */
+    .footer {
+      background-color: #f2c4f3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: auto;
+      height: 100px;
+      width: 100%;
+    }
+
+    .footer-left,
+    .footer-right {
+      flex: 1;
+      padding: 10px;
+    }
+
+    .footer-divider {
+      width: 1px;
+      height: 100%;
+      background-color: #000;
+      margin: 0 10px;
+    }
+
+@media (max-width: 576px) {
+  .footer {
+    flex-direction: column;
+  }
+
+  .footer-divider {
+    display: none;
+  }
+}
+     
+  </style>
+</head>
+<body>
+  <div class="background-image">
+    <div class="container">
+      <h1 class="title"></h1>
+      <div class="search bar input-group mb-3 ">
+        <input type="text" class="form-control search-input" placeholder="Search..." style="width: 300px";>
+
+        <div class="input-group-append">
+          <button class="btn btn-primary" type="button">Search</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="footer-left">
+      Left Content
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-right">
+      Right Content
+    </div>
+  </footer>
+  
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+     // JavaScript code to animate the title
+    const title = document.querySelector('.title');
+    const originalText = "CODE-ON";
+    const letters = originalText.split('');
+    let index = 0;
+    let reverse = false;
+
+    function animateTitle() {
+      if (!reverse) {
+        if (index < letters.length) {
+          title.textContent += letters[index];
+          index++;
+        } else {
+          setTimeout(() => {
+            reverse = true;
+          }, 1000);
+        }
+      } else {
+        if (index >= 0) {
+          title.textContent = title.textContent.slice(0, -1);
+          index--;
+        } else {
+          title.textContent = '';
+          index = 0;
+          reverse = false;
+        }
+      }
+    }
+
+    setInterval(animateTitle, 200);
+    // JavaScript code for handling search functionality
+    var searchButton = document.querySelector('.btn-primary');
+    searchButton.addEventListener('click', function() {
+      var searchInput = document.querySelector('.form-control').value;
+      alert('You searched for: ' + searchInput);
+    });
+  </script>
+  
+</body>
+</html>
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Responsive Search Bar</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* CSS code for the search bar, title, and full background picture */
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      background-image: url('https://www.codecademy.com/resources/blog/wp-content/uploads/2022/12/Real-World-Coding-Projects---thumb.png');
+      background-size: cover;
+      background-position: center;
+    }
+    
+    .container {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 20px; /* Add margin-bottom to create spacing between title and search bar */
+    }
+
+    .title {
+      font-size: 48px;
+      margin-bottom: 20px;
+      color: rgb(96, 4, 70);
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+      margin-top: 20px;
+      height: 70px;
+    }
+    .search-bar {
+      display: flex;
+      align-items: center;
+    }
+
+    .search-input {
+      width: 200px;
+    }
+    
+    @media (max-width: 576px) {
+      .search-input {
+        width: 100%;
+      }
+    }
+    @media (max-width: 576px) {
+      .footer {
+        font-size: 14px; /* Adjust font size for mobile view */
+    }
+}
+    .search-bar {
+      display: flex;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.8); /* Add a background color with transparency */
+      padding: 10px; /* Add padding to create space around the search bar */
+      z-index: 999;
+    }
+    
+    .search-input {
+      width: 200px;
+    }
+    .main-content {
+      margin-top: 120px; /* Add a margin top to create space below the fixed search bar */
+     }
+     /* CSS code for the footer */
+    .footer {
+      color: #fffdfd;
+      background-color: hsl(0, 0%, 0%);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      margin-top: auto;
+      height: 100%;
+      width: 100%;
+    }
+
+    .footer-left,
+    .footer-right {
+      flex: 1;
+      padding: 10px;
+    }
+
+    .footer-divider {
+      width: 1px;
+      height: 100%;
+      background-color: #fffdfd;
+      margin: 0 10px;
+    }
+  .result-link {
+  display: block;
+  color: #007bff;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-decoration: none;
+  }
+
+  .result-link:hover {
+  text-decoration: underline;
+  }
+
+@media (max-width: 576px) {
+  .footer {
+    flex-direction: column;
+  }
+
+  .footer-divider {
+    display: none;
+  }
+}
+    
+  </style>
+</head>
+<body>
+  <div class="background-image">
+    <div class="container">
+      <h1 class="title"></h1>
+      <div class="search bar input-group mb-3">
+        <form method="POST" action="{{ url_for('home') }}" class="input-group">
+            {{ form.csrf_token }}
+            {{ form.search(class_="form-control search-input", placeholder="Search...", style="width: 300px;") }}
+            <div class="input-group-append">
+                {{ form.submit(class_="btn btn-primary", type="submit") }}
+            </div>
+        </form>
+    </div>
+    
+    </div>
+  </div>
+  <div id="results"></div>
+
+  <footer class="footer">
+    <div class="footer-left">
+      <h6>How To Use :</h2><br>
+      <h7>Enter the key-word related which you want questions, 
+          we will provide the links of the questions related to the keyword entered. </h3>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-right">
+      <h10>Shinoy Sarkar, IIT Kharagpur &#169; All Rights Reserved</h4><br>
+    </div>
+  </footer>
+  
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+     // JavaScript code to animate the title
+    const title = document.querySelector('.title');
+    const originalText = "CODE-ON";
+    const letters = originalText.split('');
+    let index = 0;
+    let reverse = false;
+
+    function animateTitle() {
+
+      if (!reverse) {
+        if (index < letters.length) {
+          title.textContent += letters[index];
+          index++;
+        } else {
+          setTimeout(() => {
+            reverse = true;
+          }, 1000);
+        }
+      } else {
+        if (index >= 0) {
+          title.textContent = title.textContent.slice(0, -1);
+          index--;
+        } else {
+          title.textContent = '';
+          index = 0;
+          reverse = false;
+        }
+      }
+    }
+
+    setInterval(animateTitle, 200);
+  //Changing background color on clicking search button
+  var searchButton = document.querySelector('.btn-primary');
+  searchButton.addEventListener('click', function() {
+  // Change the background image
+   document.body.style.backgroundImage = "url(https://img.freepik.com/premium-photo/pink-mountain-landscape-with-pink-sky-clouds_759095-28754.jpg?w=360)";
+  });
+  // JavaScript code for handling search functionality
+  var searchForm = document.querySelector('.input-group');
+  searchForm.addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent the default form submission
+
+  var searchInput = document.querySelector('.form-control').value;
+
+  // Make an AJAX request to the server
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST','/'+ encodeURIComponent(searchInput), true);
+
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        var results = JSON.parse(xhr.responseText);
+        displayResults(results); // Call a function to display the results
+      } else {
+        console.error('Request failed with status', xhr.status);
+      }
+    }
+  };
+  xhr.send(JSON.stringify({ query: searchInput }));
+});
+
+// Rest of the code...
+
+
+  
+  // Function to display the search results on the page
+  function displayResults(results) {
+    // Assuming you have an element with the ID "results" where you want to display the results
+    var resultsContainer = document.getElementById('results');
+    
+    // Clear any existing results
+    resultsContainer.innerHTML = '';
+    
+    // Display the results
+    if(results.length===0){
+      resultsContainer.innerHTML = "Sorry, We do not have questions containing the keyword entered!";
+    }else{
+      for (var i = 0; i < results.length; i++) {
+    var result = results[i];
+    var linkElement = document.createElement('a');
+    linkElement.href = result; // Set the href attribute to the text value
+    linkElement.textContent = result; // Set the link text to the text value
+    linkElement.classList.add('result-link'); // Add a CSS class for styling
+
+    resultsContainer.appendChild(linkElement);
+    resultsContainer.appendChild(document.createElement('br')); // Add a line break between links
+    }
+
+  }
+  }
+  </script>
+  
+</body>
+</html>
+
